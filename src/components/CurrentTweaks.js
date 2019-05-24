@@ -6,7 +6,7 @@ function CurrentTweaks(props) {
         <article>
             {/* <img src={props.wishlist.image} alt=""/> */}
             <section>
-                {/* <h3>{props.wishlist.name}</h3> */}
+                <h3>sup boiiiiii</h3>
                 
             </section>
         </article>

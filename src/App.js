@@ -9,7 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      view: 'wishlist'
+      view: 'wishlist',
+      wishlist: []
     }
     this.changeView = this.changeView.bind(this)
   }
@@ -24,27 +25,33 @@ class App extends Component {
         </header>
         <div>
          <nav>
+            {/* Wishlist button */}
            <button
             className={this.state.view === 'wishlist' ? "current" : ''}
             onClick={() => this.setState({view: 'wishlist'})}
            >
              Wishlist
            </button>
+           
+           {/* My Tweaks Button */}
            <button onClick={() => this.setState({view: 'mytweaks'})}>
              My Tweaks
            </button>
           </nav>
+          
+          {/* Add Tweak Button */}
           <button
             className={this.state.view === "add" ? 'current' : ''}
             onClick={() => this.setState({view: 'add'})}
            >
              +
            </button>
+
           {this.state.view === 'wishlist' ? (
             <TweakWishlist />
           ) : this.state.view === 'add' ? (
           <Add changeView={this.changeView} /> )
-            : (<CurrentTweaks/>)
+            : (<CurrentTweaks test={console.log('hi')}/>)
           } 
         </div>
       </div>
