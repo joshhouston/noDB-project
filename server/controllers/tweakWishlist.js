@@ -29,6 +29,12 @@ const getWishlist = (req, res) => {
     res.json(tweakWishlist);
 }
 
+const addWish = (req, res) => {
+    tweakWishlist.push(req.body);
+    res.json(wishes)
+}
+
 module.exports = {
-    getWishlist
+    getWishlist,
+    addWish
 }

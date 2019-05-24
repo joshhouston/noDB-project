@@ -15,7 +15,20 @@ class Add extends Component {
     }
     render() {
         return (
-            <form class='myForm' onSubmit={e => e.preventDefault()}>
+            <form className='myForm' 
+                onSubmit={e => {e.preventDefault();
+                axios
+                    .post('api/tweakWishlist', {
+                        name: this.state.name,
+                        this: this.state.image
+                    })
+                    .then(res => {
+                        this.props.changeView('wishlist')
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }}>
                 <input name='name' onChange={this.handleChange}/>
                 <input name='image' onChange={this.handleChange}/>
                 <button type='submit'>Submit</button>

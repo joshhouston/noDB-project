@@ -16,7 +16,7 @@ class TweakWishlist extends Component {
         axios
             .get('/api/tweakWishlist')
             .then(response => {
-                this.setState({wishlist: response.data})
+                this.setState({wishlist: response.data, loading: false})
             })
             .catch(error => {
                 console.log(error);
@@ -34,9 +34,12 @@ class TweakWishlist extends Component {
             <section>
                 {this.state.loading ? <p>Loading</p> : null}
                 {this.state.error}
-                {/* {wishlist.map((wishlist, index) => (
-                    <TweakWishlist key={index} wishlist={wishlist} updateWishlist={this.updateWishlist} />
-                ))} */}
+                <h1>test wishlist</h1>
+                {wishlist.map((wishlist, index) => (
+                    <CurrentTweaks key={index} wishlist={wishlist} updateWishlist={this.updateWishlist} />
+                    
+                ))}
+                
             </section>
         )
     }

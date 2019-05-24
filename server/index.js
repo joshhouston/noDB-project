@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/api/tweakWishlist", tweakWishlist.getWishlist)
+app.post("/api/tweakWishlist", tweakWishlist.addWish)
 
 
 
