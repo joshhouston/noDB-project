@@ -11,6 +11,7 @@ app.delete("/api/currentTweaks/:name", currentTweaks.deleteTweak )
 app.get("/api/tweakWishlist", tweakWishlist.getWishlist)
 app.post("/api/tweakWishlist", tweakWishlist.addWish)
 app.put("/api/tweakWishlist", tweakWishlist.editWishlist)
+app.delete("/api/tweakWishlist/:name", tweakWishlist.deleteTweak)
 
 
 

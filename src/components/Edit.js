@@ -28,7 +28,7 @@ class Edit extends Component {
     render() {
         return (
             <div>
-                <h1>HELLO</h1>
+                
                 <form action="">
                     <h1>Edit: {this.props.tweakName}</h1>
                     <input name="editName"
@@ -39,7 +39,7 @@ class Edit extends Component {
                         onClick={e => {
                             this.editTweaks(e)
                         }}
-                    >Sub</button>
+                    >Submit</button>
                 </form>
             </div>
         )

@@ -33,7 +33,7 @@ class App extends Component {
          <nav className='navMain'>
 
          <button
-            
+            className='addTweak'
             className={this.state.view === "add" ? 'current' : ''}
             onClick={() => this.setState({view: 'add'})}
            >

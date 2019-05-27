@@ -10,12 +10,31 @@ const tweakWishlist = [
         image: 'https://repo.conorthedev.com/img/modernpower-screenshot-2.png',
         price: 0.99,
         ios: '11'
-    }
+    },
+    {
+        name: 'Bubbles',
+        image: 'https://creaturecoding.com/content/projects/bubbles/screenshots/screen_8.png',
+        price: '0.99',
+        ios: '11-12'
+    },
+    {
+        name: 'NudeKeys',
+        image: 'https://i.imgur.com/xjYKUHF.jpg',
+        price: '1.99',
+        ios: '12'
+    },
     
 ]
 
 const editWishlist = (req, res) => {
     console.log(req.params.name)
+}
+
+const deleteTweak = (req, res) => {
+    
+    const index = tweakWishlist.findIndex(tweak => tweak.name === req.params.name)
+    tweakWishlist.splice(index, 1)
+    res.json(tweakWishlist)
 }
 
 
@@ -31,5 +50,6 @@ const addWish = (req, res) => {
 module.exports = {
     getWishlist,
     addWish,
-    editWishlist
+    editWishlist,
+    deleteTweak
 }

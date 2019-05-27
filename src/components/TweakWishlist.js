@@ -10,7 +10,9 @@ class TweakWishlist extends Component {
             wishlist: [],
             loading: true,
             error: '',
-            tweakName: ''
+            tweakName: '',
+            price: 0,
+            ios: ''
             
         }
         this.updateWishlist = this.updateWishlist.bind(this)
@@ -54,13 +56,26 @@ class TweakWishlist extends Component {
                     // <CurrentTweaks key={index} wishlist={wishlist} updateWishlist={this.updateWishlist} />
                     return(
                         <div className="tweakCard" key={index}>
-                            <h1>{tweak.name}</h1>
-                            {/* <img src={tweak.image} alt=""/> */}
+                            <img src={tweak.image} alt=""/>
                             
-                            <button
-                                onClick={() => this.editTweak(tweak.name)}
-                            >edit</button>
-                            
+                            <div className="tweakInfo">
+                                <h1>Name: {tweak.name}</h1>
+                                <p>Price: {tweak.price}</p>
+                                <p>Compatability: {tweak.ios}</p>
+                            </div>
+
+                            <div className="tweakButtons">
+                                <button
+                                    onClick={() => {
+                                        axios.delete("/api/tweakWishlist/" + tweak.name).then(response => {
+                                            this.setState({wishlist: response.data})
+                                        })
+                                    }}
+                                >X</button>
+                                <button
+                                    onClick={() => this.editTweak(tweak.name)}
+                                >edit</button>
+                            </div>
                         </div>
                         
                     )

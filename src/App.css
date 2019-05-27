@@ -47,7 +47,50 @@ h1, h3 {
   padding: 0.5em;
 }    
 
+.addTweak {
+  border-radius: 15px;
+}
+
 /* TweakWishList styling */
 .wishlistMain {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.tweakCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #20263A;
+  margin: 2em;
+  padding: 2em;
+  height: 50vh;
+  width: 35vw;
+  border-radius: 5px;
+}
+
+.tweakCard h1 {
+  color: #FFF;
+}
+
+.tweakCard img {
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+}
+
+.tweakButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tweakInfo h1 {
+  margin-bottom: 2em;
+}
+
+.tweakInfo p {
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 2em;
 }
