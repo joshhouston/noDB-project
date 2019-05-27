@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import CurrentTweaks from './CurrentTweaks'
+import Edit from './Edit'
 
 class TweakWishlist extends Component {
     constructor(props) {
@@ -8,7 +9,9 @@ class TweakWishlist extends Component {
         this.state = {
             wishlist: [],
             loading: true,
-            error: ''
+            error: '',
+            tweakName: ''
+            
         }
         this.updateWishlist = this.updateWishlist.bind(this)
     }
@@ -16,7 +19,6 @@ class TweakWishlist extends Component {
         axios
             .get('/api/tweakWishlist')
             .then(response => {
-                console.log(response.data)
                 this.setState({wishlist: response.data, loading: false})
             })
             .catch(error => {
@@ -29,25 +31,51 @@ class TweakWishlist extends Component {
         this.setState({wishlist: newTweaks})
     }
 
+    editTweak(name) {
+        this.setState({edit: true, chi: name})
+      }
+    
+      toggleEdit() {
+        this.setState({edit: !this.state.edit})
+      }
+
+    
+
     render() {
         const {wishlist} = this.state;
         return(
-            <section>
+            <section className="wishlistMain">
                 {this.state.loading ? <p>Loading</p> : null}
                 {this.state.error}
-                <h1>test wishlist</h1>
                 {wishlist.map((tweak, index) => {
+                    
+                    this.state.tweakName = tweak.name
+                    // console.log(this.state.tweakName)
                     // <CurrentTweaks key={index} wishlist={wishlist} updateWishlist={this.updateWishlist} />
                     return(
-                        <div key={index}>
+                        <div className="tweakCard" key={index}>
                             <h1>{tweak.name}</h1>
-                            <img src={tweak.image} alt=""/>
+                            {/* <img src={tweak.image} alt=""/> */}
+                            
+                            <button
+                                onClick={() => this.editTweak(tweak.name)}
+                            >edit</button>
+                            
                         </div>
+                        
                     )
                     })}
-                
+                    <div>
+                        {this.state.edit === true ? (
+                            <Edit 
+                            tweakName={this.state.tweakName}/>
+                        ) : null }
+                        
+                    </div>
+                    
             </section>
         )
+        
     }
 }
 

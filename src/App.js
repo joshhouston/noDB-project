@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Add from './components/Add'
 import CurrentTweaks from './components/CurrentTweaks'
 import TweakWishlist from './components/TweakWishlist'
+import Edit from './components/Edit'
 import "./App.css"
 
 class App extends Component {
@@ -10,10 +11,15 @@ class App extends Component {
     super(props)
     this.state = {
       view: 'wishlist',
-      wishlist: []
+      wishlist: [],
+      edit: false,
+      twee: ''
     }
     this.changeView = this.changeView.bind(this)
   }
+
+ 
+
   changeView(newView) {
     this.setState({view: newView})
   }
@@ -24,34 +30,42 @@ class App extends Component {
           <Header />
         </header>
         <div>
-         <nav>
+         <nav className='navMain'>
+
+         <button
+            
+            className={this.state.view === "add" ? 'current' : ''}
+            onClick={() => this.setState({view: 'add'})}
+           >
+             +
+           </button>
+           
             {/* Wishlist button */}
            <button
             className={this.state.view === 'wishlist' ? "current" : ''}
+            className="navButtons"
             onClick={() => this.setState({view: 'wishlist'})}
            >
              Wishlist
            </button>
            
            {/* My Tweaks Button */}
-           <button onClick={() => this.setState({view: 'mytweaks'})}>
+           <button 
+           className="navButtons"
+           onClick={() => this.setState({view: 'mytweaks'})}>
              My Tweaks
            </button>
+
+          
           </nav>
           
           {/* Add Tweak Button */}
-          <button
-            className={this.state.view === "add" ? 'current' : ''}
-            onClick={() => this.setState({view: 'add'})}
-           >
-             +
-           </button>
 
           {this.state.view === 'wishlist' ? (
-            <TweakWishlist />
+            <TweakWishlist twee={this.twee}/>
           ) : this.state.view === 'add' ? (
           <Add changeView={this.changeView} /> )
-            : (<CurrentTweaks test={console.log('hi')}/>)
+            : (<CurrentTweaks />)
           } 
         </div>
       </div>

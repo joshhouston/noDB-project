@@ -6,7 +6,9 @@ class Add extends Component {
         super(props);
         this.state = {
             name: '',
-            image: ''
+            image: '',
+            price: 0,
+            ios: 11
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -20,7 +22,7 @@ class Add extends Component {
                 axios
                     .post('api/tweakWishlist', {
                         name: this.state.name,
-                        this: this.state.image
+                        image: this.state.image
                     })
                     .then(res => {
                         this.props.changeView('wishlist')

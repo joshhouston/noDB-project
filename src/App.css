@@ -7,5 +7,47 @@ body {
 }
 
 h1, h3 {
+  color: #727E92;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header Component  */
+
+.header {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.header h1 {
+  font-color: #727E92;
+  font-weight: 700;
+  font-size: 2em;
+
+}
+
+/* App.js Styling */
+
+.navMain {
+  display: flex;
+  flex-direction: row;
+  width: 15vw;
+  justify-content: space-between;
+  margin-bottom: 3em;
+}
+
+    /* App.js buttons */
+
+.navButtons {
   color: #FFF;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: red;
+  padding: 0.5em;
+}    
+
+/* TweakWishList styling */
+.wishlistMain {
+  display: flex;
 }
