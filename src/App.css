@@ -94,3 +94,9 @@ h1, h3 {
   font-family: 'Roboto', sans-serif;
   margin-bottom: 2em;
 }
+
+.footer {
+  
+  position: absolute;
+  bottom: 0;
+}

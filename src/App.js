@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Add from './components/Add'
 import CurrentTweaks from './components/CurrentTweaks'
 import TweakWishlist from './components/TweakWishlist'
@@ -68,6 +69,9 @@ class App extends Component {
             : (<CurrentTweaks />)
           } 
         </div>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     )
   }
